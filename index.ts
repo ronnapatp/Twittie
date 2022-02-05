@@ -37,8 +37,8 @@ async function main() {
   let newyear = `New year is in ${days} day`
   let contributions = grabGithubData();
   const params = {
-    description: newyear,
     location: contributions,
+    description: newyear,
   };
 
 
