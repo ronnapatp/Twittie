@@ -20,7 +20,6 @@ jobs:
       matrix:
         node-version: [16.x]
 
-    environment: production
     steps:
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
@@ -28,6 +27,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        environment: production
     - run: npm install
     - run: npm install -g ts-node
     - run: npm run dev
