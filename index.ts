@@ -35,9 +35,9 @@ async function main() {
   let distance = countDownDate - now;
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
   let newyear = `New year is in ${days} day`
-  let contributions = grabGithubData();
+  const ans = await grabGithubData();
   const params = {
-    location: contributions,
+    location: ans,
     description: newyear,
   };
 
