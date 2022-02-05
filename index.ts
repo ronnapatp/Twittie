@@ -14,7 +14,7 @@ const client = new Twitter({
 });
 
 async function grabGithubData(): Promise<string> {
-  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   await page.goto(
