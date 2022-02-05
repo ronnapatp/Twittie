@@ -35,7 +35,7 @@ async function grabGithubData(): Promise<string> {
 
 async function main() {
   const ans = await grabGithubData();
-  const tet = 'Hello'
+  const tet = '#ยกเลิกเกณฑ์ทหาร'
   const params = {
     location: ans,
     description: tet,
