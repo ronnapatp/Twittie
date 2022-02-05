@@ -1,6 +1,7 @@
 name: Run
 
-on: workflow_call
+on:
+  workflow_dispatch:
   push:
     branches: [ main ]
   pull_request:
