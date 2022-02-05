@@ -9,12 +9,6 @@ on:
   schedule:
     - cron: '*/40 * * * *'
 
-env:
-  TWITTER_CONSUMER_KEY: ${{ env.TWITTER_CONSUMER_KEY }}
-  TWITTER_CONSUMER_SECRET: ${{ env.TWITTER_CONSUMER_SECRET }}
-  TWITTER_ACCESS_KEY: ${{ env.TWITTER_ACCESS_KEY }}
-  TWITTER_ACCESS_SECRET: ${{ env.TWITTER_ACCESS_SECRET }}
-
 
 jobs:
   build:
