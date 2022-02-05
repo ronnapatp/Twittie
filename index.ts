@@ -14,11 +14,11 @@ const client = new Twitter({
 });
 
 async function grabGithubData(): Promise<string> {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ executablePath: "chromium-browser" });
   const page = await browser.newPage();
 
   await page.goto(
-    "https://github.com/users/erikch/contributions?from=2021-01-01"
+    "https://github.com/users/ronnapatp/contributions?from=2022-01-01"
   );
   let contribs = await page.$$eval("[data-count]", (val) =>
     val.reduce((acc, val) => acc + +(val.getAttribute("data-count")!) , 0)
