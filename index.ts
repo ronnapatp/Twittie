@@ -12,32 +12,14 @@ const client = new Twitter({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET as string
 });
 
-
-
-
-
-// async function grabGithubData(): Promise<string> {
-//   const browser = await puppeteer.launch();
-//   const page = await browser.newPage();
-
-//   await page.goto(
-//     "https://github.com/users/ronnapatp/contributions?from=2022-01-01"
-//   );
-//   let contribs = await page.$$eval("[data-count]", (val) =>
-//     val.reduce((acc, val) => acc + +(val.getAttribute("data-count")!) , 0)
-//   );
-
-//   const currentYear = format(new Date(), "yyyy");
-//   await browser.close();
-//   return `${currentYear} Github Contributions: ${contribs}`;
-// }
-
 async function main() {
- // const ans = await grabGithubData();
-  const tet = '#ยกเลิกเกณฑ์ทหาร'
+  let countDownDate = new Date("Jan 1, 2023").getTime();
+  let now = new Date().getTime();
+  let distance = countDownDate - now;
+  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  let newyear = `New year is in ${days} day`
   const params = {
-   //location: ans,
-    description: tet,
+    description: newyear,
   };
 
 
