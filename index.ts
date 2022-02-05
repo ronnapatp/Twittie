@@ -1,6 +1,5 @@
 import dotenv from 'dotenv'
-import puppeteer from "puppeteer";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 import Twitter from 'twitter';
 
 dotenv.config()
@@ -17,27 +16,27 @@ const client = new Twitter({
 
 
 
-async function grabGithubData(): Promise<string> {
-  const browser = await puppeteer.launch();
-  const page = await browser.newPage();
+// async function grabGithubData(): Promise<string> {
+//   const browser = await puppeteer.launch();
+//   const page = await browser.newPage();
 
-  await page.goto(
-    "https://github.com/users/ronnapatp/contributions?from=2022-01-01"
-  );
-  let contribs = await page.$$eval("[data-count]", (val) =>
-    val.reduce((acc, val) => acc + +(val.getAttribute("data-count")!) , 0)
-  );
+//   await page.goto(
+//     "https://github.com/users/ronnapatp/contributions?from=2022-01-01"
+//   );
+//   let contribs = await page.$$eval("[data-count]", (val) =>
+//     val.reduce((acc, val) => acc + +(val.getAttribute("data-count")!) , 0)
+//   );
 
-  const currentYear = format(new Date(), "yyyy");
-  await browser.close();
-  return `${currentYear} Github Contributions: ${contribs}`;
-}
+//   const currentYear = format(new Date(), "yyyy");
+//   await browser.close();
+//   return `${currentYear} Github Contributions: ${contribs}`;
+// }
 
 async function main() {
-  const ans = await grabGithubData();
+ // const ans = await grabGithubData();
   const tet = '#ยกเลิกเกณฑ์ทหาร'
   const params = {
-    location: ans,
+   //location: ans,
     description: tet,
   };
 
