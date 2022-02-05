@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
-// import { format } from "date-fns";
+import puppeteer from "puppeteer";
+import { format } from "date-fns";
 import Twitter from 'twitter';
 
 dotenv.config()
@@ -12,14 +13,32 @@ const client = new Twitter({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET as string
 });
 
+async function grabGithubData(): Promise<string> {
+  const browser = await puppeteer.launch({ executablePath: "chromium-browser" });
+  const page = await browser.newPage();
+
+  await page.goto(
+    "https://github.com/users/erikch/contributions?from=2021-01-01"
+  );
+  let contribs = await page.$$eval("[data-count]", (val) =>
+    val.reduce((acc, val) => acc + +(val.getAttribute("data-count")!) , 0)
+  );
+
+  const currentYear = format(new Date(), "yyyy");
+  await browser.close();
+  return `${currentYear} Github Contributions: ${contribs}`;
+}
+
 async function main() {
   let countDownDate = new Date("Jan 1, 2023").getTime();
   let now = new Date().getTime();
   let distance = countDownDate - now;
   let days = Math.floor(distance / (1000 * 60 * 60 * 24));
   let newyear = `New year is in ${days} day`
+  let contributions = grabGithubData();
   const params = {
     description: newyear,
+    location: contributions,
   };
 
 
