@@ -22,7 +22,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      - run: | # run multiple commands
+      - run:  # run multiple commands
         npm install
         npm install -g ts-node
         npm run dev
