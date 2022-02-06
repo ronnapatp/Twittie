@@ -13,9 +13,9 @@ on:
 jobs:
 test:
   name: Test
-
     runs-on: ubuntu-latest
-    
+    env:
+      Run: true
     steps: 
     - uses: actions/checkout@v2
     - name: Use Node.js 13.x
