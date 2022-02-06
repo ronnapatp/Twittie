@@ -12,18 +12,33 @@ on:
 
 jobs:
     runs-on: ubuntu-latest
-    environment: production
+    # environment: production
     steps: 
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+    - uses: actions/checkout@v2
+    - name: Use Node.js 13.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 13.x
     - name: Install Dependencies
-      run: npm install
-    - name: Install ts-node
-      run: npm install -g ts-node
-    - name: Run dev
-      run: npm run dev
-        env:
+      run: | # run multiple commands
+        npm install
+        npm install -g ts-node
+        npm run dev
+      env:
           TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
           TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
           TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
           TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+    # - name: Use Node.js ${{ matrix.node-version }}
+    #   uses: actions/setup-node@v2
+    # - name: Install Dependencies
+    #   run: npm install
+    # - name: Install ts-node
+    #   run: npm install -g ts-node
+    # - name: Run dev
+    #   run: npm run dev
+    #     env:
+    #       TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+    #       TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+    #       TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
+    #       TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
