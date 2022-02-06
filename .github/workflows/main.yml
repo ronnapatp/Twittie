@@ -11,8 +11,6 @@ on:
 
 
 jobs:
-test:
-  name: Test
     # runs-on: ubuntu-latest
     env:
       Run: true
