@@ -13,10 +13,8 @@ on:
 jobs:
     # runs-on: ubuntu-latest
     steps: 
-    - name: Use Node.js 13.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 13.x
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
     - name: Install Dependencies
       run: | # run multiple commands
         npm install
