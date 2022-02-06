@@ -12,8 +12,6 @@ on:
 
 jobs:
     # runs-on: ubuntu-latest
-    env:
-      Run: true
     steps: 
     - name: Use Node.js 13.x
       uses: actions/setup-node@v1
