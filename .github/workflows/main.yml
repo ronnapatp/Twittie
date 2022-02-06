@@ -17,6 +17,19 @@ jobs:
     environment: production
     steps:
     - uses: actions/checkout@v2
+    - name: Set env file
+        env:
+          TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
+          TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
+          TWITTER_ACCESS_TOKEN_KEY: ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}
+          TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+        run: |
+          touch .env
+          echo "TWITTER_CONSUMER_KEY $env:TWITTER_CONSUMER_KEY" > .env
+          echo "TWITTER_CONSUMER_SECRET $env:TWITTER_CONSUMER_SECRET" > .env
+          echo "TWITTER_ACCESS_TOKEN_KEY $env:TWITTER_ACCESS_TOKEN_KEY" > .env
+          echo "TWITTER_ACCESS_TOKEN_SECRET $env:TWITTER_ACCESS_TOKEN_SECRET" > .env
+        
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
