@@ -32,7 +32,7 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm install -g ts-node
-    - run: touch .env
+    - run: cp .env.example .env
     - run: echo "TWITTER_CONSUMER_KEY ${{ secrets.TWITTER_CONSUMER_KEY }}" >> .env
     - run: echo "TWITTER_CONSUMER_SECRET ${{ secrets.TWITTER_CONSUMER_SECRET }}" >> .env
     - run: echo "TWITTER_ACCESS_TOKEN_KEY ${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}" >> .env
