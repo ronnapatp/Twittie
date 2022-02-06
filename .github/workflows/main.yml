@@ -11,7 +11,7 @@ on:
 
 
 jobs:
-   deployment:
+  deployment:
 
     runs-on: ubuntu-latest
     environment: production
@@ -22,10 +22,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-      - run:  # run multiple commands
-        npm install
-        npm install -g ts-node
-        npm run dev
+    - run: npm install
+    - run: npm install -g ts-node
+    - run: npm run dev
       # env:
       #     TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
       #     TWITTER_CONSUMER_SECRET: ${{ secrets.TWITTER_CONSUMER_SECRET }}
