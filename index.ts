@@ -7,10 +7,10 @@ dotenv.config()
 
 
 const client = new Twitter({
-  consumer_key: process.secrets.TWITTER_CONSUMER_KEY as string,
-  consumer_secret: process.secrets.TWITTER_CONSUMER_SECRET as string,
-  access_token_key: process.secrets.TWITTER_ACCESS_TOKEN_KEY as string,
-  access_token_secret: process.secrets.TWITTER_ACCESS_TOKEN_SECRET as string
+  consumer_key: secrets.TWITTER_CONSUMER_KEY as string,
+  consumer_secret: secrets.TWITTER_CONSUMER_SECRET as string,
+  access_token_key: secrets.TWITTER_ACCESS_TOKEN_KEY as string,
+  access_token_secret: secrets.TWITTER_ACCESS_TOKEN_SECRET as string
 });
 
 async function grabGithubData(): Promise<string> {
