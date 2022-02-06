@@ -18,7 +18,6 @@ jobs:
       with:
                 node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: Install Dependencies
       run: | # run multiple commands
         npm install
         npm install -g ts-node
