@@ -19,7 +19,7 @@ async function grabGithubData(): Promise<string> {
 
   const currentYear = format(new Date(), "yyyy");
   await page.goto(
-    `https://github.com/users/ronnapatp/contributions?from=${currentYear}-01-0`
+    `https://github.com/users/ronnapatp/contributions?from=2022-01-0`
   );
   let contribs = await page.$$eval("[data-count]", (val) =>
     val.reduce((acc, val) => acc + +(val.getAttribute("data-count")!) , 0)
