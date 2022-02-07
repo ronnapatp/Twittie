@@ -33,17 +33,20 @@ async function main() {
   let countDownDate = new Date("Jan 1, 2023").getTime();
   let now = new Date().getTime();
   let distance = countDownDate - now;
-  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  let newyear = `New year is in ${days} day`
+  let newyears = Math.floor(distance / (1000 * 60 * 60 * 24));
+
+  let chistmasday = new Date("Jan 1, 2023").getTime();
+  let distances = chistmasday - now;
+  let chistmass = Math.floor(distances / (1000 * 60 * 60 * 24));
+  let ds = `2023 is in ${newyears} days 🎆 \n Christmas is in ${chistmass} days 🎄`
   const ans = await grabGithubData();
   const params = {
     location: ans,
-    description: newyear,
+    description: ds,
   };
 
 
   await client.post("account/update_profile", params);
     console.log("🎉 Success! Updated Twitter bio/location and website");
 }
-
 main().catch(err=> console.log(err))
