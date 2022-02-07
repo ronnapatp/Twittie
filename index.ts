@@ -51,8 +51,14 @@ async function main() {
     description: ds,
   };
 
-
   await client.post("account/update_profile", params);
     console.log("🎉 Success! Updated Twitter bio/location and website");
+    let test = "Test"
+    const paramss = {
+      status: test,
+    };
+  
+    await client.post("statuses/update", paramss);
+      console.log("🎉 Success! Updated Twitter bio/location and website");
 }
 main().catch(err=> console.log(err))
