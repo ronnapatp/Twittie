@@ -30,15 +30,21 @@ async function grabGithubData(): Promise<string> {
 }
 
 async function main() {
-  let countDownDate = new Date("Jan 1, 2023").getTime();
+  const currentYear = format(new Date(), "yyyy");
+  const d = new Date();
+  let nextyear = d.getFullYear() + 1;
+
+  let countDownDate = new Date(`Jan 1, ${nextyear}`).getTime();
   let now = new Date().getTime();
   let distance = countDownDate - now;
   let newyears = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-  let chistmasday = new Date("Jan 1, 2023").getTime();
+  let chistmasday = new Date(`Dec 25, ${currentYear}`).getTime();
   let distances = chistmasday - now;
   let chistmass = Math.floor(distances / (1000 * 60 * 60 * 24));
-  let ds = `2023 is in ${newyears} days 🎆 \n Christmas is in ${chistmass} days 🎄`
+
+  let ds = `2023 is in ${newyears} days 🎆 \nChristmas is in ${chistmass} days 🎄\n\nProfile will auto update every 40 minutes https://github.com/ronnapatp/twitter-bot`
+
   const ans = await grabGithubData();
   const params = {
     location: ans,
