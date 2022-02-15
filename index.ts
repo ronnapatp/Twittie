@@ -43,7 +43,7 @@ async function main() {
   let distances = chistmasday - now;
   let chistmass = Math.floor(distances / (1000 * 60 * 60 * 24));
 
-  let ds = `2023 is in ${newyears} days 🎆 \nChristmas is in ${chistmass} days 🎄\n\nProfile will auto update every 40 minutes https://github.com/ronnapatp/twitter-bot \nDonate : https://ronnapat.com/donate`
+  let ds = `2023 is in ${newyears} days 🎆 \nChristmas is in ${chistmass} days 🎄\n\nProfile will auto update every 40 minutes https://github.com/ronnapatp/twitter-bot \n\nDonate : https://ronnapat.com/donate`
 
   const ans = await grabGithubData();
   const params = {
