@@ -44,11 +44,12 @@ async function main() {
   let chistmass = Math.floor(distances / (1000 * 60 * 60 * 24));
 
   let ds = `2023 is in ${newyears} days 🎆 \nChristmas is in ${chistmass} days 🎄\n\nProfile will auto update every 40 minutes https://ronnapat.com/tw-bot`
-
+  let name = `ronnapatp #StandWithUkraine`
   const ans = await grabGithubData();
   const params = {
     location: ans,
     description: ds,
+    name: name,
   };
 
   await client.post("account/update_profile", params);
