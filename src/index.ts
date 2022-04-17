@@ -39,9 +39,9 @@ async function main() {
   let distance = countDownDate - now;
   let newyears = Math.floor(distance / (1000 * 60 * 60 * 24));
 
-  let chistmasday = new Date(`Dec 25, ${currentYear}`).getTime();
-  let distances = chistmasday - now;
-  let chistmass = Math.floor(distances / (1000 * 60 * 60 * 24));
+//   let chistmasday = new Date(`Dec 25, ${currentYear}`).getTime();
+//   let distances = chistmasday - now;
+//   let chistmass = Math.floor(distances / (1000 * 60 * 60 * 24));
 
   let ds = `#StandWithUkraine | #LetTheEarthBreath | Developer | Student | macOS | Manoonchai user | 2023 is in ${newyears} days | Update profile with https://ronnapat.com/tw-bot`
   let name = `ronnapatp 🇺🇦`
