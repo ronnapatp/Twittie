@@ -30,7 +30,7 @@ async function grabGithubData(): Promise<string> {
 }
 
 async function main() {
-  const currentYear = format(new Date(), "yyyy");
+  // const currentYear = format(new Date(), "yyyy");
   const d = new Date();
   let nextyear = d.getFullYear() + 1;
 
