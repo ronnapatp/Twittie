@@ -22,7 +22,6 @@ jobs:
         cache: 'npm'
     - run: npm install -g typescript ts-node
     - run: npm install
-    - run: npm run build
     - run: cp .env.example .env
     - run: echo "TWITTER_CONSUMER_KEY=${{ secrets.TWITTER_CONSUMER_KEY }}" >> .env
     - run: echo "TWITTER_CONSUMER_SECRET=${{ secrets.TWITTER_CONSUMER_SECRET }}" >> .env
