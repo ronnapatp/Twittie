@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ronnapatp/twitter-bot#readme",
   "dependencies": {
+    "@types/twitter": "^1.7.1",
+    "date-fns": "^2.28.0",
     "dotenv": "^16.0.0",
     "puppeteer": "^13.6.0",
     "twitter": "^1.7.1"
