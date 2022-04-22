@@ -29,7 +29,7 @@ async function main() {
   let christmass = Math.floor(distances / (1000 * 60 * 60 * 24));
 
   const tweet = {
-    status: `New year is in ${newyears} days\nChrismas is in ${christmass} days\n\nAuto tweet from ronnapat.com/tw-bot`
+    status: `New year is in ${newyears} days\nChristmas is in ${christmass} days\n\nAuto tweet from ronnapat.com/tw-bot`
   }
 
   await client.post("statuses/update", tweet);
