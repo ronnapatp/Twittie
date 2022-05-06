@@ -33,7 +33,7 @@ async function main() {
   }
 
   const tweet = {
-    status: days
+    status: `${days}\n\nAuto tweet from ronnapat.com/tw-bot`
   }
   if ( daystoelec <= -1 ){
     console.log("Fail!")
