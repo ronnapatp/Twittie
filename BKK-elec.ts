@@ -32,12 +32,14 @@ async function main() {
     days = `📣 Bangkok election in ${daystoelec} days`
   }
 
-
   const tweet = {
     status: days
   }
-
-  await client.post("statuses/update", tweet);
+  if ( daystoelec <= -1 ){
+    console.log("Fail!")
+  } else {
+    await client.post("statuses/update", tweet);
     console.log("🎉 Success! Updated Twitter statuses/update");
+  }
 }
 main().catch(err=> console.log(err))
