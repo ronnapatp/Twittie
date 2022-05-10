@@ -14,14 +14,10 @@ const client = new Twitter({
 
 async function main() {
 
-  let date = new Date(Date.UTC(2021, 5, 28, 3, 0, 0));
-  let formatter = new Intl.DateTimeFormat('en-US', { timeZone: "Asia/Bangkok" });   
-  let thDate = formatter.format(date);
-  const dates = thDate.split("0")
-  const datesFormat = dates[0]
-  parseFloat(datesFormat)
+  var today = new Date();
+  var dd: any = String(today.getDate()).padStart(2, '0');
   let elecday = 22
-  let daystoelec = elecday - parseFloat(datesFormat)
+  let daystoelec = elecday - dd
   let days;
 
   if( daystoelec == 1 ){
