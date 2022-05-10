@@ -15,6 +15,7 @@ const client = new Twitter({
 async function main() {
 
   var today = new Date();
+  today.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })
   var dd: any = String(today.getDate()).padStart(2, '0');
   let elecday = 22
   let daystoelec = elecday - dd
@@ -27,7 +28,6 @@ async function main() {
   } else {
     days = `📣 Bangkok election in ${daystoelec} days`
   }
-
   const tweet = {
     status: `${days}\n\nAuto tweet from ronnapat.com/tw-bot`
   }
