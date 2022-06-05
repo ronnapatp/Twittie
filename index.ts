@@ -43,7 +43,7 @@ async function main() {
 //   let distances = chistmasday - now;
 //   let chistmass = Math.floor(distances / (1000 * 60 * 60 * 24));
 
-  let ds = `#StandWithUkraine | #LetTheEarthBreath | Developer | Student | macOS | Manoonchai user | 2023 is in ${newyears} days | Update profile with https://ronnapat.com/tw-bot`
+  let ds = `🏳️‍🌈 | #StandWithUkraine | #LetTheEarthBreath | Developer | Student | macOS | Manoonchai user | 2023 is in ${newyears} days | Update profile with https://ronnapat.com/tw-bot`
   let name = `ronnapatp 🇺🇦`
   const ans = await grabGithubData();
   const params = {
