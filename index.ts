@@ -1,20 +1,20 @@
 import dotenv from 'dotenv'
 import puppeteer from "puppeteer";
 import { format } from "date-fns";
-import Twitter from 'twitter';
+import { TwitterApi } from 'twitter-api-v2';
 
 dotenv.config()
 
-
-const client = new Twitter({
-  consumer_key: process.env.TWITTER_CONSUMER_KEY as string,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET as string,
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY as string,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET as string
+const client = new TwitterApi({
+  appKey:       process.env.TWITTER_CONSUMER_KEY as string,
+  appSecret:    process.env.TWITTER_CONSUMER_SECRET as string,
+  accessToken:  process.env.TWITTER_ACCESS_TOKEN_KEY as string,
+  accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET as string,
 });
 
 async function grabGithubData(): Promise<string> {
   const browser = await puppeteer.launch({ executablePath: "chromium" });
+  // const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
   const currentYear = format(new Date(), "yyyy");
@@ -30,29 +30,16 @@ async function grabGithubData(): Promise<string> {
 }
 
 async function main() {
-  // const currentYear = format(new Date(), "yyyy");
   const d = new Date();
   let nextyear = d.getFullYear() + 1;
-
+  
   let countDownDate = new Date(`Jan 1, ${nextyear}`).getTime();
   let now = new Date().getTime();
   let distance = countDownDate - now;
   let newyears = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const githubData = await grabGithubData();
 
-//   let chistmasday = new Date(`Dec 25, ${currentYear}`).getTime();
-//   let distances = chistmasday - now;
-//   let chistmass = Math.floor(distances / (1000 * 60 * 60 * 24));
-
-  let ds = `🏳️‍🌈 | #StandWithUkraine | #LetTheEarthBreath | Developer | Student | macOS | Manoonchai | 2023 in ${newyears} days | Update profile with https://ronnapat.com/tw-bot`
-  let name = `ronnapatp 🇺🇦`
-  const ans = await grabGithubData();
-  const params = {
-    location: ans,
-    description: ds,
-    name: name,
-  };
-
-  await client.post("account/update_profile", params);
-    console.log("🎉 Success! Updated Twitter bio/location and website");
+  await client.v1.updateAccountProfile({ name: 'ronnapatp 🇺🇦', url: 'https://ronnapat.com/', description: `🏳️‍🌈 | #StandWithUkraine | #LetTheEarthBreath | Developer | Student | macOS | Manoonchai | 2023 in ${newyears} days | Update profile with https://ronnapat.com/tw-bot`, location: githubData })
+  console.log('Done!')
 }
 main().catch(err=> console.log(err))
