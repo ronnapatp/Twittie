@@ -1,18 +1,15 @@
 import dotenv from 'dotenv'
 import { format } from "date-fns";
-import Twitter from 'twitter';
+import { TwitterApi } from 'twitter-api-v2';
 
 dotenv.config()
 
-
-const client = new Twitter({
-  consumer_key: process.env.TWITTER_CONSUMER_KEY as string,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET as string,
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY as string,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET as string
+const client = new TwitterApi({
+  appKey:       process.env.TWITTER_CONSUMER_KEY as string,
+  appSecret:    process.env.TWITTER_CONSUMER_SECRET as string,
+  accessToken:  process.env.TWITTER_ACCESS_TOKEN_KEY as string,
+  accessSecret: process.env.TWITTER_ACCESS_TOKEN_SECRET as string,
 });
-
-
 
 async function main() {
   const currentYear = format(new Date(), "yyyy");
@@ -28,11 +25,9 @@ async function main() {
   let distances = chistmasday - now;
   let christmass = Math.floor(distances / (1000 * 60 * 60 * 24));
 
-  const tweet = {
-    status: `New year is in ${newyears} days\nChristmas is in ${christmass} days\n\nAuto tweet from ronnapat.com/tw-bot`
-  }
+  let tweetID = await client.v1.tweet(`New year is in ${newyears} days\nChristmas is in ${christmass} days`) 
+  await client.v1.reply('Auto tweet from ronnapat.com/tw-bot', tweetID.id_str)
 
-  await client.post("statuses/update", tweet);
-    console.log("🎉 Success! Updated Twitter statuses/update");
+  console.log("Done!")
 }
 main().catch(err=> console.log(err))
