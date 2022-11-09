@@ -1,2 +1,2 @@
-# twitter-bot
+# Twittie (Twitter bot)
 My twitter bot 👋🏻
