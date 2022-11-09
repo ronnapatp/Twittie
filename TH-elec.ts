@@ -15,16 +15,16 @@ const client = new TwitterApi({
 
 async function main() {
 
-    var today = new Date();
+    let today = new Date();
     today.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })
 
-    var BigDay = new Date("May 7, 2023");
-    var msPerDay = 24 * 60 * 60 * 1000;
-    var timeLeft = (BigDay.getTime() - today.getTime());
-    var e_daysLeft = timeLeft / msPerDay;
-    var daysLeft = Math.floor(e_daysLeft);
+    let BigDay = new Date("May 7, 2023");
+    let msPerDay = 24 * 60 * 60 * 1000;
+    let timeLeft = (BigDay.getTime() - today.getTime());
+    let e_daysLeft = timeLeft / msPerDay;
+    let daysLeft = Math.floor(e_daysLeft);
     let day = daysLeft 
-    var yearsLeft = 0;
+    let yearsLeft = 0;
     if (daysLeft > 365) {
       yearsLeft = Math.floor(daysLeft / 365);
       daysLeft = daysLeft % 365;
