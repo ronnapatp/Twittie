@@ -25,4 +25,4 @@ jobs:
     - run: echo "TWITTER_CONSUMER_SECRET=${{ secrets.TWITTER_CONSUMER_SECRET }}" >> .env
     - run: echo "TWITTER_ACCESS_TOKEN_KEY=${{ secrets.TWITTER_ACCESS_TOKEN_KEY }}" >> .env
     - run: echo "TWITTER_ACCESS_TOKEN_SECRET=${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}" >> .env
-    - run: ts-node tweet.ts
+    - run: ts-node NewYear-Christmas.ts
