@@ -14,34 +14,35 @@ const client = new TwitterApi({
 
 
 async function main() {
+  let today = new Date();
+  today.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })
 
-    let today = new Date();
-    today.toLocaleString('en-US', { timeZone: 'Asia/Bangkok' })
+  let ElecDay = new Date("May 7, 2023");
+  let msPerDay = 24 * 60 * 60 * 1000;
+  let timeLeft = (ElecDay.getTime() - today.getTime());
+  let e_daysLeft = timeLeft / msPerDay;
+  let daysLeft = Math.floor(e_daysLeft);
+  if (daysLeft > 365) {
+    daysLeft = daysLeft % 365;
+  }
 
-    let BigDay = new Date("May 7, 2023");
-    let msPerDay = 24 * 60 * 60 * 1000;
-    let timeLeft = (BigDay.getTime() - today.getTime());
-    let e_daysLeft = timeLeft / msPerDay;
-    let daysLeft = Math.floor(e_daysLeft);
-    let day = daysLeft 
-    let yearsLeft = 0;
-    if (daysLeft > 365) {
-      yearsLeft = Math.floor(daysLeft / 365);
-      daysLeft = daysLeft % 365;
-    }
+  daysLeft = daysLeft + 1;
+  let days: string;
 
-    let days;
-
-
-  if( day == 1 ){
-    days = "📣 Tomorrow is Thailand election day"
-  } else if ( day == 0) {
-    days = "📣 Today is Thailand election day"
-  } else {
-    days = `📣 Thailand election in ${day} days`
+  // Switch case that tweet daysleft
+  switch (daysLeft) {
+    case 0:
+      days = `Today is the Election Day!`
+      break;
+    case 1:
+      days = `Tomorrow is the Election Day!`
+      break;
+    default:
+      days = `${daysLeft} days left until the Election Day!`
+      break;
   }
   
-  if ( day <= -1 ){
+  if ( daysLeft <= -1 ){
     console.log("Fail!")
   } else {
     await client.v1.tweet(`${days}`)
