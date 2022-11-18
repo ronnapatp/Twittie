@@ -39,7 +39,7 @@ async function main() {
   let newyears = Math.floor(distance / (1000 * 60 * 60 * 24));
   const githubData = await grabGithubData();
 
-  await client.v1.updateAccountProfile({ name: 'ronnapatp 🇺🇦', url: 'https://ronnapat.com/', description: `🏳️‍🌈 | #StandWithUkraine | #LetTheEarthBreath | Developer | Student | macOS | Manoonchai | 2023 in ${newyears} days | Update profile with https://ronnapat.com/tw-bot`, location: githubData })
+  await client.v1.updateAccountProfile({ name: '@ronnapatp@mastodon.social 🇺🇦', url: 'https://ronnapat.com/', description: `🏳️‍🌈 | #StandWithUkraine | #LetTheEarthBreath | Developer | Student | macOS | Manoonchai | 2023 in ${newyears} days | Update profile with https://ronnapat.com/tw-bot`, location: githubData })
   console.log('Done!')
 }
 main().catch(err=> console.log(err))
