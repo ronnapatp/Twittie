@@ -26,7 +26,7 @@ async function main() {
   let christmass = Math.floor(distances / (1000 * 60 * 60 * 24));
   christmass = christmass + 1
 
-  let tweetID = await client.v1.tweet(`New year is in ${newyears} days\nChristmas is in ${christmass} days`) 
+  let tweetID = await client.v1.tweet(`New year is in ${newyears} days`) 
   await client.v1.reply('Auto tweet from ronnapat.com/tw-bot', tweetID.id_str)
 
   console.log("Done!")
