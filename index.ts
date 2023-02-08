@@ -39,7 +39,7 @@ async function main() {
   let newyears = Math.floor(distance / (1000 * 60 * 60 * 24));
   const githubData = await grabGithubData();
 
-  await client.v1.updateAccountProfile({ name: '(@)ronnapatp(@)แมสโทดอน(dot)โซเชียล 🇺🇦', url: 'https://ronnapat.com/', description: `🥳🎄 Merry Christmas & Happy New Year 🎄🎉 | #StandWithUkraine🇺🇦`, location: githubData })
+  await client.v1.updateAccountProfile({ name: '(@)ronnapatp(@)แมสโทดอน(dot)โซเชียล 🇺🇦', url: 'https://ronnapat.com/', description: `#SlavaUkraine 🇺🇦`, location: githubData })
   console.log('Done!')
 }
 main().catch(err=> console.log(err))
